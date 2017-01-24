@@ -55,7 +55,7 @@ ROOT_URLCONF = 'PhotoGalleryProject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -115,7 +115,8 @@ USE_L10N = True
 USE_TZ = True
 
 
-MEDIA_ROOT = '/madia/'
+MEDIA_ROOT = 'media'
+MEDIA_URL = '/media/'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
