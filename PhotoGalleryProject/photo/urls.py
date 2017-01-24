@@ -8,6 +8,7 @@ urlpatterns = [
     url(r'^photos/$', views.photos),
     url(r'^photos/addphoto/$', views.add_photo),
     url(r'^photo/(?P<photo_id>\d+)/$', views.photo),
+    url(r'^/', views.photos),
 ]
 
 if settings.DEBUG:

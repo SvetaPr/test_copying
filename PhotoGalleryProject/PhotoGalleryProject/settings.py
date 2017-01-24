@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'photo',
+    'authorization',
 ]
 
 MIDDLEWARE = [
@@ -56,7 +57,8 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': ['templates',
-                 'photo/templates'],
+                 'photo/templates',
+                 'authorization/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

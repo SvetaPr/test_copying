@@ -5,7 +5,15 @@
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
+    <ul>
+        {% if username %}
+            <li><a href="/auth/logout/">Log out ({{ username }})</a></li>
+        {% else %}
+            <li><a href="/auth/login/">Log in</a></li>
+        {% endif %}
+    </ul>
     <h1><a href="/photos">Photo gallery</a></h1>
     {% block content %}{% endblock %}
+    {% block login %}{% endblock %}
 </body>
 </html>
