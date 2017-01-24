@@ -8,6 +8,4 @@ def upload_location(instance, filename):
 class Photography(models.Model):
     class Meta():
         db_table = "photography"
-    photo_title = models.CharField(max_length=100)
     photo = models.ImageField(upload_to=upload_location)
-    photo_date = models.DateTimeField()

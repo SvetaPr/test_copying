@@ -6,8 +6,8 @@ from photo import views
 
 urlpatterns = [
     url(r'^photos/$', views.photos),
+    url(r'^photos/addphoto/$', views.add_photo),
     url(r'^photo/(?P<photo_id>\d+)/$', views.photo),
-
 ]
 
 if settings.DEBUG:
