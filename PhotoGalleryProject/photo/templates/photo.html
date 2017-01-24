@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block title %}Photo{% endblock %}
+
+{% block content %}
+    <h4>{{ photo.photo_title }}</h4>
+    <img src="{{ photo.photo.url }}">
+    <h5>{{ photo.photo_date }}</h5>
+{% endblock %}

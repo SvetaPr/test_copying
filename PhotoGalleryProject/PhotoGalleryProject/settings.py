@@ -55,7 +55,8 @@ ROOT_URLCONF = 'PhotoGalleryProject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': ['templates',
+                 'photo/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
