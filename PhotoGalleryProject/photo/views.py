@@ -6,12 +6,17 @@ from photo.forms import PhotoForm
 from photo.models import Photography
 
 
-def photos(request):
+def photos(request, user_id=1):
     args = {}
     args.update(csrf(request))
-    args['form'] = PhotoForm
-    args['photos'] = Photography.objects.all()
-    args['username'] = auth.get_user(request).username
+    user = auth.get_user(request)
+    if user is not None:
+        if user.id is int(user_id):
+            args['form'] = PhotoForm
+        args['userid'] = user.id
+        args['username'] = user.username
+    args['photos'] = Photography.objects.filter(photo_user=user_id)
+    args['photouserid'] = user_id
     return render_to_response('photos.html', args)
 
 def photo(request, photo_id=1):
@@ -23,5 +28,6 @@ def add_photo(request):
         form = PhotoForm(request.POST, request.FILES or None)
         if form.is_valid():
             instance = form.save(commit=False)
-            instance.save()
-    return redirect('/photos/')
+            instance.photo_user = auth.get_user(request)
+            form.save()
+    return redirect('/photos/%s/' %(auth.get_user(request).id))

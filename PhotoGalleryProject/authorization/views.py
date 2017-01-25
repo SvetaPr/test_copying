@@ -12,7 +12,7 @@ def login(request):
         user = auth.authenticate(username=username, password=password)
         if user is not None:
             auth.login(request, user)
-            return redirect('/photos/')
+            return redirect('/photos/%s/' %(user.id))
         else:
             args['login_error'] = "There is on such user"
             return render_to_response('login.html', args)

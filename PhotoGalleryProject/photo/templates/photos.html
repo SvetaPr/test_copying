@@ -3,12 +3,14 @@
 {% block title %}Photos{% endblock %}
 
 {% block content %}
-    <form action="/photos/addphoto/" method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form }}<br>
-    <input type="submit" value="Upload photo">
-    </form>
-    <hr>
+    {% if form %}
+        <form action="/photos/addphoto/" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form }}<br>
+        <input type="submit" value="Upload photo">
+        </form>
+        <hr>
+    {% endif %}
     {% for photo in photos %}
         <a href="/photo/{{ photo.id }}"><img src="{{ photo.photo.url }}" height="200"></a>
         <hr>
